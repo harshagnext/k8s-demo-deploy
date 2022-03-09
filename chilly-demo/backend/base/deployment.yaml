@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chilly-backend
+spec:
+  selector:
+    matchLabels:
+      app: chilly
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: chilly
+        tier: backend
+    spec:
+      containers:
+        - name: chilly-backend
+          image: "chilly:latest"
+          ports:
+            - name: http
+              containerPort: 80
+
+

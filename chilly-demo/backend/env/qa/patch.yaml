@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chilly-backend
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: chilly-backend
+          resources:
+            requests:
+              memory: 500Mi
+            limits:
+              memory: 500Mi
+          ports:
+            - containerPort: 80
+              $patch: delete
+            - name: http
+              containerPort: 9981
+          args: ["--spring.profiles.active=qa"]
