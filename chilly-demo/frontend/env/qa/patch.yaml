@@ -10,9 +10,9 @@ spec:
         - name: chilly-frontend
           resources:
             requests:
-              memory: 500Mi
+              memory: 1Gi
             limits:
-              memory: 500Mi
+              memory: 1Gi
           ports:
             - containerPort: 80
               $patch: delete
