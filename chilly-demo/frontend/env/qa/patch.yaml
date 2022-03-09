@@ -17,5 +17,5 @@ spec:
             - containerPort: 80
               $patch: delete
             - name: http
-              containerPort: 4200
+              containerPort: 80
           #args: ["--spring.profiles.active=dev"]
