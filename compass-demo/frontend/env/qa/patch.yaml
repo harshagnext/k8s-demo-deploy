@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compass-frontend
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: compass-frontend
+          resources:
+            requests:
+              memory: 1Gi
+            limits:
+              memory: 1Gi
+          ports:
+            - containerPort: 80
+              $patch: delete
+            - name: http
+              containerPort: 80
+          #args: ["--spring.profiles.active=dev"]

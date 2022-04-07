@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compass-backend
+spec:
+  selector:
+    matchLabels:
+      app: compass
+      tier: backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: compass
+        tier: backend
+    spec:
+      containers:
+        - name: compass-backend
+          image: "compass:latest"
+          ports:
+            - name: http
+              containerPort: 80
+
+

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: chilly-ingress
+spec:
+  tls:
+  - hosts:
+    - chilly-qa.qualix.ai
+    secretName: qualix-tls
+  rules:
+  - host: "chilly-qa.qualix.ai"
+    http:
+      paths:
+      - path: /portal/(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: chilly-backend
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: chilly-frontend
+            port:
+              number: 80
