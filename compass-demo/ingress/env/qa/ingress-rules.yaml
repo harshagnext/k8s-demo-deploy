@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: compass-ingress
 spec:
-  tls:
-  - hosts:
-    - compass-qa-k8s.qualix.internal.ms
-    secretName: qualix-tls
+  # tls:
+  # - hosts:
+  #   - compass-qa-k8s.qualix.internal.ms
+  #   secretName: qualix-tls
   rules:
   - host: "compass-qa-k8s.qualix.internal.ms"
     http:
